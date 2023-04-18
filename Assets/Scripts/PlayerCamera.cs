@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    //public float _sensitivityX;
-    //public float _sensitivityY;
-    public float _speedH = 12.0f;
-    public float _speedV = 2.0f;
-    public float _yaw = 0.0f;
-    public float _pitch = 0.0f;
+
+    public float xSensitivity;
+    public float ySensitivity;
+
+    public Transform orientation;
+
+    float xRotation;
+    float yRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -21,15 +23,18 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // These lines let the script rotate the player based on the mouse moving
-        _yaw += _speedH * Input.GetAxis("Mouse X");
-        _pitch -= _speedV * Input.GetAxis("Mouse Y");
-        //float _mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * _sensitivityX;
-        //float _mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * _sensitivityY;
 
-        //_yRotation += _mouseX;
+        //Grabs mouse input
+        float xMouse = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
+        float yMouse = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
 
-        //_xRotation -= _mouseY;
-        //_xRotation = Mathf.Clamp(_xRotation, -90f. )
+        yRotation += xMouse;
+        
+        xRotation -= yMouse;
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+
+        //Rotates camera and orientation
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
