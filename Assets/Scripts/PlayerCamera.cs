@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
+
     public float xSensitivity;
     public float ySensitivity;
 
@@ -22,6 +23,7 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         //Grabs mouse input
         float xMouse = Input.GetAxisRaw("Mouse X") * Time.deltaTime * xSensitivity;
         float yMouse = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * ySensitivity;
