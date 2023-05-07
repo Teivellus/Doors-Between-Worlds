@@ -15,8 +15,8 @@ MonoBehaviour:
   dominance: 3
   stamina: 20
   power: 15
-  toughness: 8
-  agression: 60
-  attackSpeed: 1
+  toughness: 10
+  agression: 100
+  attackSpeed: 2
   territorial: 1
   stealthy: 1

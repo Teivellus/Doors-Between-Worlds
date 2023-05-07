@@ -5,21 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class DeathCollision : MonoBehaviour
 {
+    public GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider player)
     {
-        if(collision.gameObject.tag == "Player")
-        {
-        EventBus.Current.LosingLife();
-        print("Oh no death time. " + EventBus.Current.LosingLife() + " lives remaining");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        print("DIE!");
+        //if(collision.gameObject.tag == "Player")
+        //{
+            //EventBus.Current.LosingLife();
+            //print("Oh no death time. " + EventBus.Current.LosingLife() + " lives remaining");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("Ouch!");
+        //}
     }
 
     // public void EndGame()

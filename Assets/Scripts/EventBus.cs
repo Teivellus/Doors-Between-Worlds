@@ -8,7 +8,6 @@ public class EventBus : MonoBehaviour
     private static EventBus _current;
     public static EventBus Current {get{ return _current;}}
     private int livesRemaining = 3;
-    private string _name = "Teivel";
 
     public int LosingLife()
     {
